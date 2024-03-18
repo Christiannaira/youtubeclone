@@ -5,6 +5,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { fetchFromAPi } from "../utils/fetchFromApi";
 import { Videos, Sidebar } from "./";
 
+
 const Feed = () => {
 
     const [selectedCategory, setSelectedCategory] = useState("New");
@@ -16,7 +17,7 @@ const Feed = () => {
 
         fetchFromAPi(`search?part=snippet&q=${selectedCategory}`)
             .then((data) => {
-                console.log(data)
+                setVideos(data.items);
             }
 
             )
